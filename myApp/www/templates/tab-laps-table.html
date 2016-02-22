@@ -1,10 +1,10 @@
-<ion-view view-title="TimeStop" ng-controller="clockTimerCtrl as timer">
+<ion-view view-title="TimeStop" ng-controller="stopWatchCtrl as timer">
 	<ion-content class="padding">
 		<div class="card">
-			<div class="item item-text-wrap digital-clock clock">{{timer.theclock}}</div>
+			<div class="item item-text-wrap digital-clock clock">{{timer.timeStatus | stopWatch }}</div>
 			<div class="item item-divider padding-vertical">
 				<div class="item-button-left padding">
-					<button class="button" ng-click="timer.activateTimer()">
+					<button class="button" ng-click="timer.timeSwitcher()">
 						<i class="icon ion-ios-play padding-right"></i> Play
 					</button>					
 				</div>
@@ -17,9 +17,9 @@
 			</div>
 		</div>
 		<div class="list">
-			<div class="item item-button-right row row-center" ng-repeat="lapItem in timer.lapsList">
-				<div ng-bind="lapItem.stopTime"></div>
-				<label class="item item-input col col col-center col-75">
+			<div class="item item-button-right row row-center" ng-repeat="lapItem in timer.lapsList  track by $index">
+				<div ng-bind="lapItem.stopTime" class="col col-25"></div>
+				<label class="item item-input col col-center col-50">
 					<input type="text" ng-model="lapItem.title" placeholder="Some LAbel">
 				</label>
 				<button class="button button-assertive" ng-click="timer.removeLap(lapItem)">

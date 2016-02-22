@@ -1,1 +1,9 @@
 /* Empty. Add your own CSS if you like */
+@import 'typography.css';
+.digital-clock{
+	font-family: digital;
+	font-size: 30px;
+	color: green;
+	background: black;
+	text-align: center;
+}
